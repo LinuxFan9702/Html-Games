@@ -1,72 +1,49 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/p5.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/addons/p5.dom.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.7.3/addons/p5.sound.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="style.css">
-  <meta charset="utf-8" />
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Clicker Game</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f0;
+            margin-top: 50px;
+        }
+        .click-btn {
+            padding: 20px 40px;
+            font-size: 24px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 8px;
+        }
+        .click-btn:active {
+            background-color: #45a049;
+        }
+        h1 {
+            font-size: 48px;
+            color: #333;
+        }
+    </style>
 </head>
-
 <body>
-  <!-- id="container" is new -->
-  <div class="container" id="container">
-    <p>
-      <h1>My clicker game</h1>
-    </p>
-    
-    <button onclick="addScore()" class="button">Click me!</button>
-  
-    <hr>
-  
-  <a href=""><img href=""></a>
-  
-    Total money: <span id="score">0</span><br/>
-  Money per second: <span id="autoScore">0</span>
-    
-    <hr>
-    My awesome shop
-    <p>
-      <table style="width: 100%;">
-        <tr>
-          <td> +1 click per click </td>
-          <td> price <span id="item1">10</span> </td>
-          <td>
-            <button class="button" onclick="buyClick()">Buy</button>
-          </td>
-        </tr>
-        <tr>
-          <!-- New -->
-          <td> New background color </td>
-          <td> price <span id="background">250</span> </td>
-          <td>
-            <button class="button" onclick="buyBackground()">Buy</button>
-          </td>
-          <!-- No more new -->
-        </tr>
-        <tr id="surprise">
-          <td> AutoClick </td>
-          <td> price <span id="autoClick">50</span> </td>
-          <td>
-            <button class="button" onclick="buyAutoClick()">Buy</button>
-          </td>
-        </tr>
-      </table>
-    </p>
-  <!-- New -->
-  <p>
-    <button onclick="bg('#F44336')" class="button-red invisible" id="btn-1">Red</button>
-    <button onclick="bg('#4CAF50')" class="button-green invisible" id="btn-2">Green</button>
-    <button onclick="bg('#3F51B5')" class="button-blue invisible" id="btn-3">Blue</button>
-  </p>
-  <!-- No more new -->
-  </div>
 
-<iframe src="https://www.openprocessing.org/sketch/691519/embed/" width="1366" height="575"></iframe>
+    <h1>Score: <span id="score">0</span></h1>
+    <button class="click-btn" onclick="incrementScore()">Click Me!</button>
 
-  <script src="sketch.js"></script>
+    <script>
+        let count = 0;
+        const scoreDisplay = document.getElementById('score');
+
+        function incrementScore() {
+            count++;
+            scoreDisplay.textContent = count;
+        }
+    </script>
+
 </body>
-
 </html>
+
